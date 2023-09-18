@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+# Install rubocop gem for linter
+gem 'rubocop', '>= 1.0', '< 2.0'
