@@ -12,7 +12,6 @@
 - [Blog App ](#blog-app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
-  - [](#)
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -57,7 +56,6 @@
     <li><a href="https://www.rubyguides.com/2018/11/ruby-erb-haml-slim/">ERB template</a></li>
   </ul>
 </details>
----
 
 <!-- Features -->
 
