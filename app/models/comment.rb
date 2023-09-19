@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   # association with other models: User and Post
-  belongs_to :author, class_name: "User", foreign_key: "users_id"
-  belongs_to :post, class_name: "Post", foreign_key: "posts_id"
+  belongs_to :author, class_name: 'User', foreign_key: 'users_id'
+  belongs_to :post, class_name: 'Post', foreign_key: 'posts_id'
 
   # update the comments counter of a Post
   after_save :update_comments_counter_by_post

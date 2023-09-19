@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   # association with other models: User, Comment and Like
-  belongs_to :author, class_name: "User", foreign_key: "author_id_id"
-  has_many :comments, class_name: "Comment", foreign_key: "posts_id"
-  has_many :likes, class_name: "Like", foreign_key: "posts_id"
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id_id'
+  has_many :comments, class_name: 'Comment', foreign_key: 'posts_id'
+  has_many :likes, class_name: 'Like', foreign_key: 'posts_id'
 
   # custom query: the five most recent comments for a given post
   def most_recent_comments
