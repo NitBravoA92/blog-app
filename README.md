@@ -162,7 +162,7 @@ This will start the application on your local server. You can now open your brow
 Upcoming improvements:
 
 - [x] Creating a data model
-- [ ] Processing data in models
+- [x] Processing data in models
 - [ ] Validations and model specs
 - [ ] Controllers
 - [ ] Views
