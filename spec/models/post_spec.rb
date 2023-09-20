@@ -45,5 +45,12 @@ RSpec.describe Post, type: :model do
 
       expect(@post).to_not be_valid
     end
+
+    it 'The Post should not be valid when the title has more than 250 characters' do
+      long_post_title = 'Third post title' * 16 
+      @post.title = nil
+
+      expect(@post).to_not be_valid
+    end
   end
 end
