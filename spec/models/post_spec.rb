@@ -52,5 +52,11 @@ RSpec.describe Post, type: :model do
 
       expect(@post).to_not be_valid
     end
+
+    it 'The Post should not be valid when the comments_counter attribute is not an integer' do
+      @post.comments_counter = 'new string'
+
+      expect(@post).to_not be_valid
+    end
   end
 end
