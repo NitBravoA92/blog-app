@@ -72,6 +72,7 @@
   </li>
   <li>MVC architectural/design pattern</li>
   <li>Data persistent in PostgreSQL</li>
+  <li>Test the application with rspec</li>
   <li>Follow Microverse's list of best practices</li>
 </ul>
 
@@ -135,7 +136,11 @@ This will start the application on your local server. You can now open your brow
 
 ### Run tests
 
-- Not aplicable.
+To execute the tests, run the following command inside the project folder:
+
+```
+ rspec
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,7 +168,7 @@ Upcoming improvements:
 
 - [x] Creating a data model
 - [x] Processing data in models
-- [ ] Validations and model specs
+- [x] Validations and model specs
 - [ ] Controllers
 - [ ] Views
 - [ ] Forms
