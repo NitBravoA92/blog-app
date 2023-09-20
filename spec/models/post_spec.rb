@@ -65,6 +65,12 @@ RSpec.describe Post, type: :model do
       expect(@post).to_not be_valid
     end
 
+    it 'The Post should be valid when the comments_counter is greater than or equal to 0' do
+      @post.comments_counter = 13
+
+      expect(@post).to be_valid
+    end
+
     it 'The Post should not be valid when the likes_counter attribute is not an integer' do
       @post.likes_counter = 'new string'
 
