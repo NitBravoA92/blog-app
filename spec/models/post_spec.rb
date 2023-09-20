@@ -16,11 +16,12 @@ RSpec.describe Post, type: :model do
     end
 
     it 'should return the last 5 comments added on a post' do
-      first_comment = Comment.create(post: @post, author: @user, text: 'This is the first comment of Mark Miller')
-      second_comment = Comment.create(post: @post, author: @user, text: 'This is the second comment of Mark Miller')
-      third_comment = Comment.create(post: @post, author: @user, text: 'This is the third comment of Mark Miller')
-      fourth_comment = Comment.create(post: @post, author: @user, text: 'This is the fourth comment of Mark Miller')
-      fifth_comment = Comment.create(post: @post, author: @user, text: 'This is the fifth comment of Mark Miller')
+      comment_author = User.create(name: 'Louis Wilson', bio: 'Hi! I am Louis.')
+      first_comment = Comment.create(post: @post, author: comment_author, text: 'This is the first comment of Louis Wilson')
+      second_comment = Comment.create(post: @post, author: comment_author, text: 'This is the second comment of Louis Wilson')
+      third_comment = Comment.create(post: @post, author: comment_author, text: 'This is the third comment of Louis Wilson')
+      fourth_comment = Comment.create(post: @post, author: comment_author, text: 'This is the fourth comment of Louis Wilson')
+      fifth_comment = Comment.create(post: @post, author: comment_author, text: 'This is the fifth comment of Louis Wilson')
 
       recent_comments = @post.most_recent_comments
       expected_results = [fifth_comment, fourth_comment, third_comment, second_comment, first_comment]
