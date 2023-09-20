@@ -43,5 +43,11 @@ RSpec.describe User, type: :model do
 
       expect(@user).to_not be_valid
     end
+
+    it 'The user should be valid when the posts_counter greater than or equal to 0' do
+      @user.posts_counter = 10
+
+      expect(@user).to be_valid
+    end
   end
 end
