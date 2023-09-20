@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   before :each do
     @user = User.create(name: 'Mark Miller', bio: 'I am Mark Miller and I am a Backend Developer')
-    @post = Post.create(author: @user, title: 'My first post about UX/UI', text: 'This is the first post of James Miller')
+    @post = Post.create(author: @user, title: 'My first post about Backend technologies', text: 'This is the first post of Mark Miller')
   end
 
   describe '#most_recent_comments' do
@@ -25,6 +25,17 @@ RSpec.describe Post, type: :model do
       expected_results = [fifth_comment, fourth_comment, third_comment, second_comment, first_comment]
 
       expect(recent_comments).to eq(expected_results)
+    end
+  end
+
+  describe '#update_posts_counter_by_user' do
+    it 'should update the posts_counter attribute of the author of a post' do
+      second_post = Post.create(author: @user, title: 'My second post about Backend technologies', text: 'This is the second post of Mark Miller')
+
+      second_post.update_posts_counter_by_user
+      expected_results = 2
+
+      expect(@user.posts_counter).to eq(expected_results)
     end
   end
 end
