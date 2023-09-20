@@ -38,4 +38,12 @@ RSpec.describe Post, type: :model do
       expect(@user.posts_counter).to eq(expected_results)
     end
   end
+
+  describe 'attributes validation' do
+    it 'The Post should not be valid without a title' do
+      @post.title = nil
+
+      expect(@post).to_not be_valid
+    end
+  end
 end
