@@ -25,4 +25,11 @@ RSpec.describe User, type: :model do
       expect(recent_posts).to eq(expected_results)
     end
   end
+
+  describe 'attributes validations' do # test the attributes validations
+    it 'The user should not be valid without a name' do
+      @user.name = nil
+      expect(@user).to_not be_valid
+    end
+  end
 end
