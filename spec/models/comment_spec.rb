@@ -10,7 +10,8 @@ RSpec.describe Comment, type: :model do
   describe '#update_comments_counter_by_post' do
     it 'should update the comments_counter attribute of a post' do
       comment_author = User.create(name: 'Frank Mendez', bio: 'I am Frank Mendez')
-      comment = Comment.create(post: @post, author: comment_author, text: 'This is the first comment on Peter Miller Post')
+      comment = Comment.create(post: @post, author: comment_author,
+                               text: 'This is the first comment on Peter Miller Post')
 
       comment.update_comments_counter_by_post
       expected_result = 1
