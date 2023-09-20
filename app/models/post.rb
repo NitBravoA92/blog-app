@@ -9,6 +9,12 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  # attributes validations
+  validates :title, presence: true
+  validates :title, length: {maximum: 250}
+  validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
+
   # update the posts counter of a User
   after_save :update_posts_counter_by_user
   after_destroy :update_posts_counter_by_user
