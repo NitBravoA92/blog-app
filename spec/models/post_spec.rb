@@ -76,5 +76,11 @@ RSpec.describe Post, type: :model do
 
       expect(@post).to_not be_valid
     end
+
+    it 'The Post should not be valid when the likes_counter is less than 0' do
+      @post.likes_counter = -10
+
+      expect(@post).to_not be_valid
+    end
   end
 end
