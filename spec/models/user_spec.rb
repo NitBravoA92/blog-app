@@ -31,5 +31,11 @@ RSpec.describe User, type: :model do
       @user.name = nil
       expect(@user).to_not be_valid
     end
+
+    it 'The user should not be valid when the posts_counter is not an integer' do
+      @user.posts_counter = "This is a string"
+
+      expect(@user).to_not be_valid
+    end
   end
 end
