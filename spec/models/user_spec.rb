@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.create(name: "James Miller", bio: "I am James Miller and I am a UX/UI Designer");
+    @user = User.create(name: 'James Miller', bio: 'I am James Miller and I am a UX/UI Designer')
     @user.save # save the new user in the test database
   end
 
@@ -15,9 +15,12 @@ RSpec.describe User, type: :model do
     end
 
     it 'should return the 3 most recent posts written by James Miller' do
-      first_post = Post.create(author: @user, title: "My first post about UX/UI", text: "This is the first post of James Miller")
-      second_post = Post.create(author: @user, title: "My second post about UX/UI", text: "This is the second post of James Miller")
-      third_post = Post.create(author: @user, title: "My third post about UX/UI", text: "This is the third post of James Miller")
+      first_post = Post.create(author: @user, title: 'My first post about UX/UI',
+                               text: 'This is the first post of James Miller')
+      second_post = Post.create(author: @user, title: 'My second post about UX/UI',
+                                text: 'This is the second post of James Miller')
+      third_post = Post.create(author: @user, title: 'My third post about UX/UI',
+                               text: 'This is the third post of James Miller')
 
       recent_posts = @user.most_recent_posts
       expected_results = [third_post, second_post, first_post]
@@ -33,7 +36,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'The user should not be valid when the posts_counter is not an integer' do
-      @user.posts_counter = "This is a string"
+      @user.posts_counter = 'This is a string'
 
       expect(@user).to_not be_valid
     end
