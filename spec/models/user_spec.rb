@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before :each do
     @user = User.create(name: 'James Miller', bio: 'I am James Miller and I am a UX/UI Designer')
-    @user.save # save the new user in the test database
   end
 
   describe '#most_recent_posts' do # test the most_recent_posts method
