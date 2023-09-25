@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     begin
       @user = User.find(@user_id)
     rescue ActiveRecord::RecordNotFound => e
-      redirect_to users_path, notice: "User not found"
+      redirect_to users_url, notice: "User not found"
     end
   end
 end
