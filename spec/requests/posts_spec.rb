@@ -34,4 +34,16 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include(expected_result_num_posts)
     end
   end
+
+  describe 'GET /show' do
+    before :each do
+      @user_url_post = user_post_path(@user, @post)
+    end
+
+    # test if the response status was correct (status 200).
+    it 'returns http success' do
+      get @user_url_post
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
