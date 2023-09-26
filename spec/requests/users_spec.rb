@@ -38,5 +38,11 @@ RSpec.describe 'Users', type: :request do
       get user_url(@user)
       expect(response).to render_template(:show)
     end
+
+    # test If the response body includes correct placeholder text.
+    it 'renders the show template with the correct content' do
+      get user_url(@user)
+      expect(response.body).to include('User information details')
+    end
   end
 end
