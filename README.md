@@ -169,7 +169,7 @@ Upcoming improvements:
 - [x] Creating a data model
 - [x] Processing data in models
 - [x] Validations and model specs
-- [ ] Controllers
+- [x] Controllers
 - [ ] Views
 - [ ] Forms
 
