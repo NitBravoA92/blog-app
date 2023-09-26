@@ -51,5 +51,13 @@ RSpec.describe 'Posts', type: :request do
       get @user_url_post
       expect(response).to render_template(:show)
     end
+
+    # test If the response body includes correct content.
+    it 'renders the index template with correct content' do
+      get @user_url_post
+
+      expected_result = "Post ##{@post.id}"
+      expect(response.body).to include(expected_result)
+    end
   end
 end
