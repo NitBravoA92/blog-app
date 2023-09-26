@@ -25,4 +25,12 @@ RSpec.describe 'Users', type: :request do
       expect(response.body).to include('All users')
     end
   end
+
+  describe 'GET /show' do
+    # test if the response status was correct (status 200).
+    it 'returns http success' do
+      get user_url(@user)
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
