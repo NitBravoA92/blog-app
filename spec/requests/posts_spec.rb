@@ -16,5 +16,11 @@ RSpec.describe 'Posts', type: :request do
       get @user_url_posts
       expect(response).to have_http_status(:success)
     end
+
+    # test if a correct template was rendered.
+    it 'renders the index template' do
+      get @user_url_posts
+      expect(response).to render_template(:index)
+    end
   end
 end
