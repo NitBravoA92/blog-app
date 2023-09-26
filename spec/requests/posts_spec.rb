@@ -22,5 +22,16 @@ RSpec.describe 'Posts', type: :request do
       get @user_url_posts
       expect(response).to render_template(:index)
     end
+
+    # test If the response body includes correct content.
+    it 'renders the index template with correct content' do
+      get @user_url_posts
+
+      expected_result_user = "#{@user.name}"
+      expect(response.body).to include(expected_result_user)
+
+      expected_result_num_posts = "number of posts: #{@user.id}"
+      expect(response.body).to include(expected_result_num_posts)
+    end
   end
 end
