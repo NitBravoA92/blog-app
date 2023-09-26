@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Adding nested resources routes for users and posts
-  resources :users do
-    resources :posts
+  resources :users , only: [:index, :show] do
+    resources :posts, only: [:index, :show]
   end 
 
   # Defines the root path route ("/")
