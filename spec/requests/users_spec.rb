@@ -12,5 +12,11 @@ RSpec.describe 'Users', type: :request do
       get @user_url
       expect(response).to have_http_status(:success)
     end
+
+    # test if a correct template was rendered.
+    it 'renders the index template' do
+      get @user_url
+      expect(response).to render_template(:index)
+    end
   end
 end
