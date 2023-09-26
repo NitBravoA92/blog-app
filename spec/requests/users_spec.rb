@@ -18,5 +18,11 @@ RSpec.describe 'Users', type: :request do
       get @user_url
       expect(response).to render_template(:index)
     end
+
+    # test If the response body includes correct placeholder text.
+    it 'renders the index template with correct placeholder text' do
+      get @user_url
+      expect(response.body).to include('All users')
+    end
   end
 end
