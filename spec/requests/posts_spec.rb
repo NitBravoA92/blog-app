@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   before :each do
     @user = User.create(name: 'William Brown', bio: 'Hi! I am William and I am Frontend Developer')
-    @post = Post.create(author: @user, title: 'Post #1', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+    @post = Post.create(author: @user, title: 'Post #1',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit')
   end
 
   describe 'GET /index' do
@@ -27,7 +28,7 @@ RSpec.describe 'Posts', type: :request do
     it 'renders the index template with correct content' do
       get @user_url_posts
 
-      expected_result_user = "#{@user.name}"
+      expected_result_user = @user.name.to_s
       expect(response.body).to include(expected_result_user)
 
       expected_result_num_posts = "number of posts: #{@user.id}"
