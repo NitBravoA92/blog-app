@@ -45,5 +45,11 @@ RSpec.describe 'Posts', type: :request do
       get @user_url_post
       expect(response).to have_http_status(:success)
     end
+
+    # test if a correct template was rendered.
+    it 'renders the show template' do
+      get @user_url_post
+      expect(response).to render_template(:show)
+    end
   end
 end
