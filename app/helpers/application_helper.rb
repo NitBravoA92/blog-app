@@ -18,7 +18,7 @@ module ApplicationHelper
     content = ''
     flash.each do |key, value|
       content << "
-      <div class='flash_alert-#{key}'>
+      <div class='flash flash_alert-#{key}'>
         <p class='flash_alert_content'>#{value}</p>
       </div>
     "

@@ -131,12 +131,19 @@ main {
   font-size: 1.2rem;
 }
 
-.flash_alert-error {
-  background-color: #881515;
+.flash {
   color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem;
+}
+
+.flash_alert-success {
+  background-color: #01520f;
+}
+
+.flash_alert-error {
+  background-color: #881515;
 }
 
 /* ============ USERS ============ */
