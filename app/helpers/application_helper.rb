@@ -1,12 +1,15 @@
 module ApplicationHelper
   def navigation_path
     content = ''
-    content << "<li>#{link_to 'All Users', users_path }</li>" unless controller_name == 'users' && action_name == 'index'
+    unless controller_name == 'users' && action_name == 'index'
+      content << "<li>#{link_to 'All Users',
+                                users_path}</li>"
+    end
     if controller_name == 'posts' && action_name == 'index'
-      content << "<li>#{link_to 'User bio', user_path(@user) }</li>"
+      content << "<li>#{link_to 'User bio', user_path(@user)}</li>"
     end
     if controller_name == 'posts' && action_name == 'show'
-      content << "<li>#{link_to 'User posts', user_posts_path }</li>"
+      content << "<li>#{link_to 'User posts', user_posts_path}</li>"
     end
     content.html_safe
   end

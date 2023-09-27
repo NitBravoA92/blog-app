@@ -14,7 +14,7 @@
  *= require_self
  */
 
- /* ============ GENERAL STYLES ============ */
+/* ============ GENERAL STYLES ============ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -45,7 +45,7 @@ nav .website_title a {
 }
 
 nav .website_title span {
-  color:#881515;
+  color: #881515;
 }
 
 nav #menu {
@@ -106,7 +106,7 @@ main {
   display: inline-block;
   padding: 0.5rem 1rem;
   border: 1px solid #000;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
   background-color: #fff;
   color: #000;
   text-decoration: none;
@@ -151,7 +151,7 @@ main {
   margin-bottom: 2rem;
 }
 
-.user_item a {
+.user_item .user_item_link {
   text-decoration: none;
   color: #000;
   display: grid;
@@ -163,12 +163,12 @@ main {
   width: 100%;
   height: auto;
   border: 1px solid #b6b6b6;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
 }
 
 .user_details {
   border: 1px solid #000;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
   padding: 1rem 1.2rem;
 }
 
@@ -192,7 +192,7 @@ main {
 
 .post_item_container {
   border: 1px solid #000;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
   padding: 0.3rem 1rem;
   width: 100%;
   height: auto;
@@ -210,7 +210,7 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.post_item_title a {
+.post_item_title .post_title_link {
   color: #000;
   text-decoration: none;
 }
@@ -239,7 +239,7 @@ main {
   list-style: none;
   padding: 1rem 0.5rem;
   background-color: #ecf2f9;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
 }
 
 /* ============ MEDIA QUERIES ============ */

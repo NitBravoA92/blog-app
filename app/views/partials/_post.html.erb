@@ -1,6 +1,6 @@
 <div class="post_item">
   <h4 class="post_item_title">
-    <%= link_to post.title, user_post_path(post.author, post) %>
+    <%= link_to post.title, user_post_path(post.author, post), class: 'post_title_link' %>
   </h4>
   <p class="post_item_description content_text">
     <%= trim_post_content(post.text) %>
