@@ -1,0 +1,14 @@
+<div class="user_item">
+  <%= link_to user, method: "show", class: "user_item" do %>
+  <img src="<%= user.photo %>" alt="<%= user.name %> photo" class="user_image" />
+    <div class="user_details">
+      <h2 class="user_name"><%= user.name %></h2>
+      <p class="user_posts_counter">
+        <span class="item_counter">
+          <b>Number of posts:</b> 
+          <%= user.posts_counter %>
+        </span>
+      </p>
+    </div>
+  <% end %>
+</div>
