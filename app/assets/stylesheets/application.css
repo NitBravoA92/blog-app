@@ -83,6 +83,7 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: left;
+  padding: 1rem 0;
 }
 
 .section_title {
@@ -124,10 +125,6 @@ main {
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 1rem;
-}
-
-.button_container {
-  margin-top: 4rem;
 }
 
 .item_counter {
