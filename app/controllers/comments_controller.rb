@@ -6,6 +6,13 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @post = find_post_by_id
+    @new_comment = @post.comments.new(comment_params)
+    @new_comment.author = current_user
+    result = @new_comment.save
+    render new unless result
+    flash[:success] = 'The comment of the post was created successfully!'
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private
