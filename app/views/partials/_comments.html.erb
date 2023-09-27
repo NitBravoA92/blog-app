@@ -1,0 +1,8 @@
+<div class="comments_container">
+  <h5 class="section_subtitle">Comments: </h5>
+  <ul class="post_comments">
+    <% comments.each do |comment| %>
+      <li class="post_item_comment"><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+    <% end %>
+  </ul>
+</div>
