@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="add_comment_form_container">
+    <h2 class="">Create a new comment</h2>
+    <%= form_with(model: [@user, @post, @comment], local:true) do |f| %>
+      <div class="form_group">
+        <%= f.label :text %>
+        <%= f.text_area :text, class: 'form_control' %>
+      </div>
+      <div class="form_group">
+        <%= f.submit "Save comment", class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
