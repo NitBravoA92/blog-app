@@ -1,68 +1,13 @@
-<section class="user_header_info">
-  <div>
-    <img src="/" alt="user photo" class="user_image" />
-  </div>
-  <div>
-    <h2><%= @user_name%></h2>
-    <p>number of posts: <%= @user_id %></p>
-  </div>
-</section>
+<div class="container">
+  <%= render partial: 'partials/user', object: @user %>
+</div>
 
-<section>
-  <ul id="user_posts">
-    <li class="post_item">
-      <div class="posts_item_content">
-        <h4 class="post_item_title">Post #1</h4>
-        <p class="post_item_description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p class="post_item_footer">
-          <span>Comments: x</span>, <span>Likes: y</span>
-        </p>
-      </div>
-      <ul class="post_comments">
-        <li class="post_item_comment">Username: Comment 1</li>
-        <li class="post_item_comment">Username: Comment 2</li>
-        <li class="post_item_comment">Username: Comment 3</li>
-        <li class="post_item_comment">Username: Comment 4</li>
-        <li class="post_item_comment">Username: Comment 5</li>
-      </ul>
-    </li>
-    <li class="post_item">
-      <div class="posts_item_content">
-        <h4 class="post_item_title">Post #2</h4>
-        <p class="post_item_description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p class="post_item_footer">
-          <span>Comments: x</span>, <span>Likes: y</span>
-        </p>
-      </div>
-      <ul class="post_comments">
-        <li class="post_item_comment">Username: Comment 1</li>
-        <li class="post_item_comment">Username: Comment 2</li>
-        <li class="post_item_comment">Username: Comment 3</li>
-        <li class="post_item_comment">Username: Comment 4</li>
-        <li class="post_item_comment">Username: Comment 5</li>
-      </ul>
-    </li>
-    <li class="post_item">
-      <div class="posts_item_content">
-        <h4 class="post_item_title">Post #3</h4>
-        <p class="post_item_description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p class="post_item_footer">
-          <span>Comments: x</span>, <span>Likes: y</span>
-        </p>
-      </div>
-      <ul class="post_comments">
-        <li class="post_item_comment">Username: Comment 1</li>
-        <li class="post_item_comment">Username: Comment 2</li>
-        <li class="post_item_comment">Username: Comment 3</li>
-        <li class="post_item_comment">Username: Comment 4</li>
-        <li class="post_item_comment">Username: Comment 5</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+<div class="container">
+  <div class="user_posts">
+    <%= render partial: 'partials/posts_comments', collection: @posts, as: :post %>
+  </div>
+</div>
+
+<div class="container">
+  <%= render partial: 'partials/pagination' %>
+</div>

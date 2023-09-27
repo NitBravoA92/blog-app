@@ -170,7 +170,7 @@ Upcoming improvements:
 - [x] Processing data in models
 - [x] Validations and model specs
 - [x] Controllers
-- [ ] Views
+- [x] Views
 - [ ] Forms
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
