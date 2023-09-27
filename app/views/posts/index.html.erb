@@ -3,6 +3,7 @@
 </div>
 
 <div class="container">
+  <%= render partial: 'partials/add_post_button', object: @user, as: :user %>
   <div class="user_posts">
     <%= render partial: 'partials/posts_comments', collection: @posts, as: :post %>
   </div>
