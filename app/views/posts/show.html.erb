@@ -12,3 +12,7 @@
 <div class="container">
   <%= render partial: 'partials/comments', object: @post.most_recent_comments, as: :comments %>
 </div>
+
+<div class="container">
+  <%= render partial: 'partials/add_comment_button', object: @post, as: :post %>
+</div>
