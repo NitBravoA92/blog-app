@@ -1,0 +1,12 @@
+<div class="post_item">
+  <h4 class="post_item_title">
+    <%= link_to post.title, user_post_path(post.author, post) %>
+  </h4>
+  <p class="post_item_description content_text">
+    <%= post.text %>
+  </p>
+  <p class="post_item_footer">
+    <span class="item_counter"><b>Comments: </b> <%= post.comments_counter %></span>, 
+    <span class="item_counter"><b>Likes:</b> <%= post.likes_counter %></span>
+  </p>
+</div>
