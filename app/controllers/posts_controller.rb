@@ -22,4 +22,10 @@ class PostsController < ApplicationController
     flash[:error] = 'Error! Post not found'
     redirect_to user_posts_url
   end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
