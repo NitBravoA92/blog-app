@@ -14,6 +14,7 @@
  *= require_self
  */
 
+ /* ============ GENERAL STYLES ============ */
 * {
   box-sizing: border-box;
 }
@@ -22,32 +23,92 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.main_container {
+main {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
-  padding: 3rem;
+  min-height: 100vh;
 }
 
-/* ============ USER PAGE ============ */
-#user_list {
-  list-style: none;
+.main_section {
+  width: 100%;
+  padding: 1rem;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: left;
+}
+
+.section_title {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.section_subtitle {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 0.30rem;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.content_text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.button_container {
+  margin-top: 4rem;
+}
+
+.item_counter {
+  font-size: 1.2rem;
+}
+
+/* ============ USERS ============ */
+#user_list {
+  width: 100%;
   gap: 2rem;
 }
 
-#user_list li {
+.user_item {
   width: 100%;
   height: auto;
+  margin-bottom: 2rem;
 }
 
 .user_item a {
   text-decoration: none;
   color: #000;
-  padding: 1rem 1.5rem;
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 3rem;
@@ -73,6 +134,91 @@ body {
 }
 
 .user_posts_counter {
-  font-size: 1rem;
   text-align: right;
+}
+
+/* ============ POSTS ============ */
+.user_posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post_item_container {
+  border: 1px solid #000;
+  border-radius: 0.30rem;
+  padding: 0.3rem 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.post_item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post_item_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.post_item_title a {
+  color: #000;
+  text-decoration: none;
+}
+
+.post_item_footer {
+  text-align: right;
+}
+
+.post_page_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============ COMMENTS ============ */
+.comments_container {
+  width: 100%;
+}
+
+.post_comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 1rem 0.5rem;
+  background-color: #ecf2f9;
+  border-radius: 0.30rem;
+}
+
+/* ============ MEDIA QUERIES ============ */
+@media (min-width: 768px) {
+  .main_section {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 998px) {
+  .main_section {
+    max-width: 95%;
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main_section {
+    max-width: 85%;
+  }
+}
+
+@media (min-width: 1180px) {
+  .main_section {
+    max-width: 75%;
+  }
 }
