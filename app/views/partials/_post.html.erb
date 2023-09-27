@@ -3,7 +3,7 @@
     <%= link_to post.title, user_post_path(post.author, post) %>
   </h4>
   <p class="post_item_description content_text">
-    <%= post.text %>
+    <%= trim_post_content(post.text) %>
   </p>
   <p class="post_item_footer">
     <span class="item_counter"><b>Comments: </b> <%= post.comments_counter %></span>, 
