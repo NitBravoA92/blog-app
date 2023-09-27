@@ -7,6 +7,14 @@ class PostsController < ApplicationController
     redirect_to users_url
   end
 
+  def new
+    @user = current_user
+    @post = @user.posts.new
+  end
+
+  def create
+  end
+
   def show
     @users_posts = User.find(params[:user_id]).posts
     @post = @users_posts.find(params[:id])
