@@ -1,4 +1,8 @@
 <div class="container">
+  <%= render partial: 'partials/likes_button', object: @post, as: :post %>
+</div>
+
+<div class="container">
   <h2 class="post_page_title">
     <span class="post_item_title"><%= @post.title %> by <b><%= @post.author.name %></b></span>
     <span>
