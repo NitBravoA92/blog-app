@@ -171,7 +171,10 @@ Upcoming improvements:
 - [x] Validations and model specs
 - [x] Controllers
 - [x] Views
-- [ ] Forms
+- [x] Add Forms to create a new post and comments
+- [x] Add the functionality to save likes
+- [ ] Authentication
+- [ ] Authorization
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
