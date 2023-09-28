@@ -233,6 +233,13 @@ main {
   align-items: center;
 }
 
+.btn_add_post_container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 /* ============ COMMENTS ============ */
 .comments_container {
   width: 100%;
