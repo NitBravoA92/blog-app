@@ -3,7 +3,7 @@ module ApplicationHelper
     content = ''
     unless controller_name == 'users' && action_name == 'index'
       content << "<li>#{link_to 'All Users',
-      get_url(1)}</li>"
+                                get_url(1)}</li>"
     end
 
     content << generate_nav_link({ name: 'posts', action: 'index' }, 'User bio', 2)

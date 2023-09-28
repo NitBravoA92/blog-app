@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @is_liked = like_exists?(@post, current_user)
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Error! Post not found'
-    redirect_to user_posts_url
+    redirect_to user_posts_path
   end
 
   def addlike
@@ -38,9 +38,7 @@ class PostsController < ApplicationController
 
   def deletelike
     @post = find_post_by_id
-    if like_exists?(@post, current_user)
-      @post.likes.destroy_by(author: current_user)
-    end
+    @post.likes.destroy_by(author: current_user) if like_exists?(@post, current_user)
     redirect_to user_post_path(@post.author, @post)
   end
 
@@ -49,7 +47,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 
   def find_user_by_id
     User.find(params[:user_id])
