@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       delete 'deletelike', on: :member
       resources :comments, only: [:new, :create]
     end
-  end 
+  end
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "users#index"
 end
