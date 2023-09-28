@@ -233,7 +233,8 @@ main {
   align-items: center;
 }
 
-.btn_add_post_container {
+.btn_add_post_container,
+.likes_button_container {
   display: flex;
   justify-content: flex-end;
   width: 100%;
