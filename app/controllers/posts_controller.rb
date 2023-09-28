@@ -42,4 +42,9 @@ class PostsController < ApplicationController
   def find_post_by_id
     Post.find(params[:id])
   end
+
+  def like_exists?(post, user)
+    @like = post.likes.where(author: user)
+    @like.exists?
+  end
 end
