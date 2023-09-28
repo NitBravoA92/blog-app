@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = find_user_by_id
     @posts = @user.posts
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Error! User not found'
@@ -21,11 +21,19 @@ class PostsController < ApplicationController
   end
 
   def show
-    @users_posts = User.find(params[:user_id]).posts
+    @user = find_user_by_id
+    @users_posts = @user.posts
     @post = @users_posts.find(params[:id])
+    @is_liked = like_exists?(@post, current_user)
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Error! Post not found'
     redirect_to user_posts_url
+  end
+
+  def addlike
+    @post = find_post_by_id
+    Like.create(post: @post, author: current_user) unless like_exists?(@post, current_user)
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private
