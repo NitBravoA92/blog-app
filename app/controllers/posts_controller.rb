@@ -36,6 +36,14 @@ class PostsController < ApplicationController
     redirect_to user_post_path(@post.author, @post)
   end
 
+  def deletelike
+    @post = find_post_by_id
+    if like_exists?(@post, current_user)
+      @post.likes.destroy_by(author: current_user)
+    end
+    redirect_to user_post_path(@post.author, @post)
+  end
+
   private
 
   def post_params
