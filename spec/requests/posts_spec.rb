@@ -31,7 +31,7 @@ RSpec.describe 'Posts', type: :request do
       expected_result_user = @user.name.to_s
       expect(response.body).to include(expected_result_user)
 
-      expected_result_num_posts = "number of posts: #{@user.id}"
+      expected_result_num_posts = "<b>Number of posts:</b> #{@user.posts_counter}"
       expect(response.body).to include(expected_result_num_posts)
     end
   end
@@ -57,7 +57,7 @@ RSpec.describe 'Posts', type: :request do
     it 'renders the index template with correct content' do
       get @user_url_post
 
-      expected_result = "Post ##{@post.id}"
+      expected_result = @post.title
       expect(response.body).to include(expected_result)
     end
   end

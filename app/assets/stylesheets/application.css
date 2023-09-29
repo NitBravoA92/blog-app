@@ -131,12 +131,19 @@ main {
   font-size: 1.2rem;
 }
 
-.flash_alert-error {
-  background-color: #881515;
+.flash {
   color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem;
+}
+
+.flash_alert-success {
+  background-color: #01520f;
+}
+
+.flash_alert-error {
+  background-color: #881515;
 }
 
 /* ============ USERS ============ */
@@ -226,6 +233,14 @@ main {
   align-items: center;
 }
 
+.btn_add_post_container,
+.likes_button_container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 /* ============ COMMENTS ============ */
 .comments_container {
   width: 100%;
@@ -242,10 +257,45 @@ main {
   border-radius: 0.3rem;
 }
 
+/* ============ FORMS ============ */
+.form_container {
+  width: 100%;
+}
+
+.form_container form {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form_container .form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form_container .form_group label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.form_control {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 /* ============ MEDIA QUERIES ============ */
 @media (min-width: 768px) {
   .main_section {
     padding: 1.5rem;
+  }
+
+  .form_container {
+    width: 85%;
   }
 }
 
@@ -254,16 +304,28 @@ main {
     max-width: 95%;
     padding: 3rem;
   }
+
+  .form_container {
+    width: 80%;
+  }
 }
 
 @media (min-width: 1024px) {
   .main_section {
     max-width: 85%;
   }
+
+  .form_container {
+    width: 75%;
+  }
 }
 
 @media (min-width: 1180px) {
   .main_section {
     max-width: 75%;
+  }
+
+  .form_container {
+    width: 70%;
   }
 }

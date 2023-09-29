@@ -22,7 +22,8 @@ RSpec.describe 'Users', type: :request do
     # test If the response body includes correct placeholder text.
     it 'renders the index template with correct placeholder text' do
       get @user_url
-      expect(response.body).to include('All users')
+      expected_result = '<span>Blog</span>App'
+      expect(response.body).to include(expected_result)
     end
   end
 
@@ -42,7 +43,10 @@ RSpec.describe 'Users', type: :request do
     # test If the response body includes correct placeholder text.
     it 'renders the show template with the correct content' do
       get user_url(@user)
-      expect(response.body).to include('User information details')
+      expected_result = @user.name
+
+      expect(response.body).to include(expected_result)
+      expect(response.body).to include('bio:')
     end
   end
 end
