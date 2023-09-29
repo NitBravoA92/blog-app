@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="add_post_form_container">
+  <div class="form_container">
     <h2 class="">Create a new post</h2>
     <%= form_with(model: [@user, @post], local:true) do |f| %>
       <div class="form_group">
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form_control' %>
       </div>
-      <div class="form-group">
+      <div class="form_group">
         <%= f.label :text %>
         <%= f.text_area :text, class: 'form_control' %>
       </div>
