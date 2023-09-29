@@ -263,7 +263,7 @@ main {
 }
 
 .form_container form {
-  margin: 1rem 0rem;
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
