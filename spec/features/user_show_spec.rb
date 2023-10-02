@@ -27,4 +27,12 @@ describe "Visit the show page of 'users'", type: :feature do
 
     expect(page).to have_content 'Number of posts: 2'
   end
+
+  it "should display the user's bio" do
+    visit user_path(@user)
+
+    expected_result = 'Hello! I am a Ruby Backend Developer from USA.'
+
+    expect(page).to have_content expected_result
+  end
 end
