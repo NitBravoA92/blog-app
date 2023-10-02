@@ -59,4 +59,14 @@ describe "Visit the show page of 'users'", type: :feature do
 
     expect(page).to have_content 'See all posts'
   end
+
+  it "Clicking on each post title should redirect to post's show page" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+
+    visit user_path(@user)
+
+    click_link 'Post 1'
+
+    expect(page).to have_current_path (user_post_path(@user, post1))
+  end
 end
