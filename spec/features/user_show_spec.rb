@@ -9,4 +9,13 @@ describe "Visit the show page of 'users'", type: :feature do
     visit user_path(@user)
     expect(page).to have_content 'Frank Miller'
   end
+
+  it 'should display the profile picture of the user' do
+    visit user_path(@user)
+
+    expect(page).to have_selector('img')
+
+    expect(page).to have_css('img[src="https://randomuser.me/api/portraits/men/88.jpg"]')
+    expect(page).to have_css('img[alt="Frank Miller photo"]')
+  end
 end
