@@ -35,4 +35,10 @@ describe "Visit the index page of 'users'", type: :feature do
     expect(page).to have_content 'Number of posts: 0'
   end
 
+  it "Clicking on each username should redirect to user's show page" do
+    visit users_path
+    click_link 'Frank Miller'
+    expect(page).to have_current_path (user_path(@first_user))
+  end
+
 end
