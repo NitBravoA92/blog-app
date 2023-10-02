@@ -153,17 +153,12 @@ main {
 }
 
 .user_item {
-  width: 100%;
-  height: auto;
-  margin-bottom: 2rem;
-}
-
-.user_item .user_item_link {
   text-decoration: none;
   color: #000;
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .user_image {
@@ -183,6 +178,11 @@ main {
   font-size: 3rem;
   font-weight: 700;
   margin: 0.5rem 0;
+}
+
+.user_item .user_item_link {
+  text-decoration: none;
+  color: #000;
 }
 
 .user_posts_counter {
