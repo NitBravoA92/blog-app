@@ -36,7 +36,7 @@ describe "Visit the show page of 'users'", type: :feature do
     expect(page).to have_content expected_result
   end
 
-  it 'should display only the three latest posts of the user' do
+  it "should display only the three latest posts of the user" do
     post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
     post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
     post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
@@ -48,5 +48,15 @@ describe "Visit the show page of 'users'", type: :feature do
     expect(page).to have_content 'Post 1'
     expect(page).to have_content 'Post 2'
     expect(page).to have_content 'Post 3'
+  end
+
+  it "should display a button with the text: 'See all posts' that allows user to see all its posts" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+
+    visit user_path(@user)
+
+    expect(page).to have_content 'See all posts'
   end
 end
