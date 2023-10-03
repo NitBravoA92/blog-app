@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe "Visit the index page of 'posts'", type: :feature do
   before :each do
-    @user = User.create(name: 'Jason Rogers', photo: 'https://randomuser.me/api/portraits/men/90.jpg', bio: 'Hello! I am a Web designer from UK.')
+    @user = User.create(name: 'Jason Rogers', photo: 'https://randomuser.me/api/portraits/men/90.jpg',
+                        bio: 'Hello! I am a Web designer from UK.')
   end
 
-  it "should display the username" do
+  it 'should display the username' do
     visit user_posts_path(@user)
     expect(page).to have_content 'Jason Rogers'
   end
@@ -19,10 +20,10 @@ describe "Visit the index page of 'posts'", type: :feature do
     expect(page).to have_css('img[alt="Jason Rogers photo"]', count: 1)
   end
 
-  it "should display the number of posts the user has written" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
-    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+  it 'should display the number of posts the user has written' do
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
 
     visit user_posts_path(@user)
 
@@ -30,7 +31,7 @@ describe "Visit the index page of 'posts'", type: :feature do
   end
 
   it "should display a post's title" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
 
     visit user_posts_path(@user)
 
@@ -38,37 +39,37 @@ describe "Visit the index page of 'posts'", type: :feature do
   end
 
   it "should display some of the post's body." do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
 
     visit user_posts_path(@user)
 
     expect(page).to have_content 'This is the content of Post 1'
   end
 
-  it "should display the first comments on a post." do
+  it 'should display the first comments on a post.' do
     post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    comment1 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 1')
+    Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 1')
 
     visit user_posts_path(@user)
 
     expect(page).to have_content 'This is the first comment on Post 1'
   end
 
-  it "should display how many comments a post has" do
+  it 'should display how many comments a post has' do
     post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    comment1 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 1')
-    comment2 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 2')
-    comment3 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 3')
+    Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 1')
+    Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 2')
+    Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 3')
 
     visit user_posts_path(@user)
 
     expect(page).to have_content 'Comments: 3, Likes: 0'
   end
 
-  it "should display how many likes a post has" do
+  it 'should display how many likes a post has' do
     post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    like1 = Like.create(post: post1, author: @user)
-    like2 = Like.create(post: post1, author: @user)
+    Like.create(post: post1, author: @user)
+    Like.create(post: post1, author: @user)
 
     visit user_posts_path(@user)
 
@@ -80,27 +81,27 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     visit user_posts_path(@user)
 
-    click_link "Post 1"
+    click_link 'Post 1'
 
     expect(page).to have_current_path(user_post_path(@user, post1))
   end
 
   it "Clicking on the 'Create a post' button should redirect to post's new page" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
 
     visit user_posts_path(@user)
 
-    click_link "Create a post"
+    click_link 'Create a post'
 
     expect(page).to have_current_path(new_user_post_path(@user))
   end
 
-  it "should display a section for pagination" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
-    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
-    post4 = Post.create(author: @user, title: 'Post 4', text: 'This is the content of Post 4')
+  it 'should display a section for pagination' do
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+    Post.create(author: @user, title: 'Post 4', text: 'This is the content of Post 4')
 
     visit user_posts_path(@user)
 

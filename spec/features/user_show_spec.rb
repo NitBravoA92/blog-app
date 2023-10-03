@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe "Visit the show page of 'users'", type: :feature do
   before :each do
-    @user = User.create(name: 'Frank Miller', photo: 'https://randomuser.me/api/portraits/men/88.jpg', bio: 'Hello! I am a Ruby Backend Developer from USA.')
+    @user = User.create(name: 'Frank Miller', photo: 'https://randomuser.me/api/portraits/men/88.jpg',
+                        bio: 'Hello! I am a Ruby Backend Developer from USA.')
   end
 
-  it "should display the username" do
+  it 'should display the username' do
     visit user_path(@user)
     expect(page).to have_content 'Frank Miller'
   end
@@ -19,9 +20,9 @@ describe "Visit the show page of 'users'", type: :feature do
     expect(page).to have_css('img[alt="Frank Miller photo"]', count: 1)
   end
 
-  it "should display the number of posts the user has written" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+  it 'should display the number of posts the user has written' do
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
 
     visit user_path(@user)
 
@@ -36,10 +37,10 @@ describe "Visit the show page of 'users'", type: :feature do
     expect(page).to have_content expected_result
   end
 
-  it "should display only the three latest posts of the user" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
-    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+  it 'should display only the three latest posts of the user' do
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
 
     visit user_path(@user)
 
@@ -51,9 +52,9 @@ describe "Visit the show page of 'users'", type: :feature do
   end
 
   it "should display a button with the text: 'See all posts' that allows user to see all its posts" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
-    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
-    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
 
     visit user_path(@user)
 
@@ -61,7 +62,7 @@ describe "Visit the show page of 'users'", type: :feature do
   end
 
   it "Clicking on the 'See all posts' button should redirect to user's posts page" do
-    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
 
     visit user_path(@user)
 
