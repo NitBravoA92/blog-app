@@ -80,4 +80,12 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 0, Likes: 0'
   end
+
+  it "Clicking on the Create a Comment button should redirect to comment's new page" do
+    visit user_post_path(@user, @post)
+
+    click_link "Create a Comment"
+
+    expect(page).to have_current_path(new_user_post_comment_path(@user, @post))
+  end
 end
