@@ -68,4 +68,16 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 0, Likes: 1'
   end
+
+  it "Clicking on the Don't Like it button should decrease the number of likes of the post" do
+    Like.create(post: @post, author: @user)
+
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Comments: 0, Likes: 1'
+
+    click_button "Don't Like it"
+
+    expect(page).to have_content 'Comments: 0, Likes: 0'
+  end
 end
