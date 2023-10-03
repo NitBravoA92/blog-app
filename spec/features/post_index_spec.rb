@@ -28,4 +28,12 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Number of posts: 3'
   end
+
+  it "should display a post's title" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_content 'Post 1'
+  end
 end
