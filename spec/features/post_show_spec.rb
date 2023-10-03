@@ -17,4 +17,15 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Peter Williams'
   end
+
+  it "should display how many comments the post has" do
+    commentor = User.create(name: 'Edward Richards')
+
+    comment1 = Comment.create(post: @post, author: commentor, text: 'This is the first comment on Post 2')
+    comment2 = Comment.create(post: @post, author: commentor, text: 'This is the second comment on Post 2')
+
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Comments: 2, Likes: 0'
+  end
 end
