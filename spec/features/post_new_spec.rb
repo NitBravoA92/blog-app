@@ -10,4 +10,10 @@ describe "Visit the new page of 'posts'", type: :feature do
     visit new_user_post_path(@user)
     expect(page).to have_content 'Create a new post'
   end
+
+  it "should display the form labels: 'Title' and 'Text'" do
+    visit new_user_post_path(@user)
+    expect(page).to have_content 'Title'
+    expect(page).to have_content 'Text'
+  end
 end
