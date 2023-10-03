@@ -36,4 +36,10 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 0, Likes: 1'
   end
+
+  it "should display the body of the post" do
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'This is the content of Post 2'
+  end
 end
