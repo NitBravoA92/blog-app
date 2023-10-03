@@ -84,4 +84,15 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_current_path(user_post_path(@user, post1))
   end
+
+  it "Clicking on the 'Create a post' button should redirect to post's new page" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+
+    visit user_posts_path(@user)
+
+    click_link "Create a post"
+
+    expect(page).to have_current_path(new_user_post_path(@user))
+  end
 end
