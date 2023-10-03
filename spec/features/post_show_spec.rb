@@ -28,4 +28,12 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 2, Likes: 0'
   end
+
+  it "should display how many likes the post has" do
+    like1 = Like.create(post: @post, author: @user)
+
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Comments: 0, Likes: 1'
+  end
 end
