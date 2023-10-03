@@ -74,4 +74,14 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 0, Likes: 2'
   end
+
+  it "Clicking on each post title should redirect to post's show page" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+
+    visit user_posts_path(@user)
+
+    click_link "Post 1"
+
+    expect(page).to have_current_path(user_post_path(@user, post1))
+  end
 end
