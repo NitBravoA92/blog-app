@@ -41,14 +41,18 @@ describe "Visit the show page of 'users'", type: :feature do
     Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
     Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
     Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+    Post.create(author: @user, title: 'Post 4', text: 'This is the content of Post 4')
+    Post.create(author: @user, title: 'Post 5', text: 'This is the content of Post 5')
 
     visit user_path(@user)
 
     expect(page).to have_css('.user_posts .post_item_container', count: 3)
 
-    expect(page).to have_content 'Post 1'
-    expect(page).to have_content 'Post 2'
+    expect(page).to have_content 'Post 5'
+    expect(page).to have_content 'Post 4'
     expect(page).to have_content 'Post 3'
+    expect(page).to_not have_content 'Post 2'
+    expect(page).to_not have_content 'Post 1'
   end
 
   it "should display a button with the text: 'See all posts' that allows user to see all its posts" do
