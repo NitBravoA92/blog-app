@@ -1,4 +1,4 @@
 <div class="post_item_container">
   <%= render partial: 'partials/post', object: post, as: :post %>
-  <%= render partial: 'partials/comments', object: post.most_recent_comments, as: :comments %>
+  <%= render partial: 'partials/comments', object: post.comments, as: :comments %>
 </div>

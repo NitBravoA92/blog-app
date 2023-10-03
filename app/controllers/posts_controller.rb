@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post_by_id, only: %i[addlike deletelike]
 
   def index
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Error! User not found'
     redirect_to users_url

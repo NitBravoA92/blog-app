@@ -156,6 +156,10 @@ To execute the tests, run the following command inside the project folder:
 - Twitter: [@softwareDevOne](https://twitter.com/softwareDevOne)
 - LinkedIn: [Nitcelis Bravo Alcala](https://www.linkedin.com/in/nitcelis-bravo-alcala-b65340158)
 
+👤 **Cesar Herrera**
+-   GitHub: [@CesarHerr](https://github.com/CesarHerr)
+-   LinkedIn: [Cesarherr](https://www.linkedin.com/in/cesarHerr/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
@@ -173,6 +177,7 @@ Upcoming improvements:
 - [x] Views
 - [x] Add Forms to create a new post and comments
 - [x] Add the functionality to save likes
+- [x] Add the integration tests using capybara gem
 - [ ] Authentication
 - [ ] Authorization
 
