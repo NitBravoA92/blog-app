@@ -95,4 +95,15 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_current_path(new_user_post_path(@user))
   end
+
+  it "should display a section for pagination" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    post2 = Post.create(author: @user, title: 'Post 2', text: 'This is the content of Post 2')
+    post3 = Post.create(author: @user, title: 'Post 3', text: 'This is the content of Post 3')
+    post4 = Post.create(author: @user, title: 'Post 4', text: 'This is the content of Post 4')
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_content 'Pagination'
+  end
 end
