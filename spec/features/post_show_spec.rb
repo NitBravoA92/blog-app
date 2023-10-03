@@ -42,4 +42,20 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'This is the content of Post 2'
   end
+
+  it "should display the username and comment of each commentor" do
+    commentor1 = User.create(name: 'Edward')
+    commentor2 = User.create(name: 'Roger')
+
+    comment1 = Comment.create(post: @post, author: commentor1, text: 'This is the first comment on Post 2')
+    comment2 = Comment.create(post: @post, author: commentor2, text: 'This is the second comment on Post 2')
+
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Edward'
+    expect(page).to have_content 'This is the first comment on Post 2'
+
+    expect(page).to have_content 'Roger'
+    expect(page).to have_content 'This is the second comment on Post 2'
+  end
 end
