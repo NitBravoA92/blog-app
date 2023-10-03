@@ -11,4 +11,10 @@ describe "Visit the show page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Post 2'
   end
+
+  it "should display the post's author" do
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Peter Williams'
+  end
 end
