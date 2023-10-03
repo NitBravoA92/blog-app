@@ -36,4 +36,12 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Post 1'
   end
+
+  it "should display some of the post's body." do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_content 'This is the content of Post 1'
+  end
 end
