@@ -44,4 +44,15 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_content 'This is the content of Post 1'
   end
+
+  it "should display the first comments on a post." do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    comment1 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 1')
+    comment2 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 2')
+    comment3 = Comment.create(post: post1, author: @user, text: 'This is the first comment on Post 3')
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_content 'This is the first comment on Post 1'
+  end
 end
