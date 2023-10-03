@@ -11,4 +11,9 @@ describe "Visit the new page of 'comments'", type: :feature do
     visit new_user_post_comment_path(@user, @post)
     expect(page).to have_content 'Create a new comment'
   end
+
+  it "should display the form labels: 'Text'" do
+    visit new_user_post_comment_path(@user, @post)
+    expect(page).to have_content 'Text'
+  end
 end
