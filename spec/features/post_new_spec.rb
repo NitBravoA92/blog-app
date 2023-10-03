@@ -20,7 +20,7 @@ describe "Visit the new page of 'posts'", type: :feature do
   it "should create a new Post when user click on 'Save post' button" do
     visit new_user_post_path(@user)
 
-    within("form") do
+    within('form') do
       fill_in 'Title', with: 'Post 3'
       fill_in 'Text', with: 'This is the content of Post 3'
     end
