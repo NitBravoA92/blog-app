@@ -64,4 +64,14 @@ describe "Visit the index page of 'posts'", type: :feature do
 
     expect(page).to have_content 'Comments: 3, Likes: 0'
   end
+
+  it "should display how many likes a post has" do
+    post1 = Post.create(author: @user, title: 'Post 1', text: 'This is the content of Post 1')
+    like1 = Like.create(post: post1, author: @user)
+    like2 = Like.create(post: post1, author: @user)
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_content 'Comments: 0, Likes: 2'
+  end
 end
