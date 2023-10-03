@@ -58,4 +58,14 @@ describe "Visit the show page of 'posts'", type: :feature do
     expect(page).to have_content 'Roger'
     expect(page).to have_content 'This is the second comment on Post 2'
   end
+
+  it "Clicking on the Like button should increase the number of likes of the post" do
+    visit user_post_path(@user, @post)
+
+    expect(page).to have_content 'Comments: 0, Likes: 0'
+
+    click_button 'Like it'
+
+    expect(page).to have_content 'Comments: 0, Likes: 1'
+  end
 end
