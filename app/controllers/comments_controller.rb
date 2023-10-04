@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :find_post_by_id, only: %i[new create]
 
   def new
