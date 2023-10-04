@@ -12,4 +12,10 @@ module PostsHelper
       button_to 'Like it', addlike_user_post_path(@post.author, @post), method: :post, class: 'btn', remote: true
     end
   end
+
+  def show_create_post_button
+    return '' unless user_signed_in?
+
+    "#{link_to 'Create a post', new_user_post_path(user), class: 'btn'}"
+  end
 end
