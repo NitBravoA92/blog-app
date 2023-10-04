@@ -18,7 +18,7 @@ module PostsHelper
 
     return '' unless user_signed_in?
 
-    content << "#{link_to 'Create a post', new_user_post_path(@user), class: 'btn'}"
+    content << link_to('Create a post', new_user_post_path(@user), class: 'btn').to_s
 
     content.html_safe
   end

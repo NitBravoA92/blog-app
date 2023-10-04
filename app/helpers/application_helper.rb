@@ -23,11 +23,12 @@ module ApplicationHelper
   end
 
   def generate_session_nav_link
-    sign_out = "<li class='session_nav_link'>#{link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }}</li>"
+    sign_out = "<li class='session_nav_link'>#{link_to 'Sign Out', destroy_user_session_path,
+                                                       data: { turbo_method: :delete }}</li>"
     sign_in = "<li class='session_nav_link'>#{link_to 'Sign In', new_user_session_path}</li>"
     sign_up = "<li class='session_nav_link'>#{link_to 'Sign Up', new_user_registration_path}</li>"
-    
-    links = user_signed_in? ? sign_out : sign_in + sign_up
+
+    user_signed_in? ? sign_out : sign_in + sign_up
   end
 
   def get_url(level)
