@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create addlike deletelike]
   before_action :find_user_by_id, only: %i[index show]
   before_action :find_post_by_id, only: %i[addlike deletelike]
 

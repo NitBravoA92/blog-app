@@ -146,6 +146,14 @@ main {
   background-color: #881515;
 }
 
+.flash_alert-alert {
+  background-color: #c56d08;
+}
+
+.flash_alert-notice {
+  background-color: #0c39a0;
+}
+
 /* ============ USERS ============ */
 #user_list {
   width: 100%;
@@ -286,6 +294,25 @@ main {
   border-radius: 0.3rem;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.form_footer_links {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.form_footer_links.black_color {
+  color: #000;
+}
+
+.form_footer_links.red_color {
+  color: #881515;
+}
+
+.form_footer_links:hover {
+  text-decoration: underline;
 }
 
 /* ============ MEDIA QUERIES ============ */

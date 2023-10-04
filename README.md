@@ -72,7 +72,8 @@
   </li>
   <li>MVC architectural/design pattern</li>
   <li>Data persistent in PostgreSQL</li>
-  <li>Test the application with rspec</li>
+  <li>Test the application with rspec and capybara gems</li>
+  <li>Authentication system build with devise gem</li>
   <li>Follow Microverse's list of best practices</li>
 </ul>
 
@@ -96,6 +97,10 @@ In order to run this project you need:
 
 <ul>
     <li><p>Git and a GitHub account</p></li>
+</ul>
+
+<ul>
+    <li><p>MailCatcher (This is optional)</p></li>
 </ul>
 
 ### Setup
@@ -123,6 +128,45 @@ Before to run the program, verify that you have Ruby on Rails installed on your 
 It should show you the version of ruby on rails ​​installed. If this does not happen and only an error message is displayed, then you should either verify your installation or install Ruby on Rails from scratch.
 
 [Download and Install Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
+
+Once you have verified that you have Ruby on Rails installed, run the following command to install the necessary gems:
+
+```
+ bundle install
+```
+
+After installing the gems, run the following command to create the database:
+
+```
+ rails db:create
+```
+
+Then run the following command to migrate the database:
+
+```
+ rails db:migrate
+```
+
+**Note:** This is completely optional but if you want to test the functionality of sending confirmation email and password reset locally, it is recommended that you install the `MailCatcher` gem. This tool runs a super simple SMTP server which catches any message sent to it to display in a web interface.
+
+To install it, it is as simple as running the following command in your terminal:
+
+```
+ gem install mailcatcher
+```
+
+Once installed, run the following command to start the server:
+
+```
+ mailcatcher
+```
+
+This will start the local SMTP server on port 1025. You can now open your browser and go to http://localhost:1080/ to see the messages sent to the SMTP server.
+
+So when you register a new user in the application, a confirmation email will automatically be sent to the user which you can check in your mailcatcher inbox. Emails for password reset can also be verified in mailcacher.
+
+
+If you want to know more about this gem, visit its official documentation: [Mailcacher](https://mailcatcher.me/)
 
 ### Usage
 
@@ -178,7 +222,7 @@ Upcoming improvements:
 - [x] Add Forms to create a new post and comments
 - [x] Add the functionality to save likes
 - [x] Add the integration tests using capybara gem
-- [ ] Authentication
+- [x] Authentication using devise gem
 - [ ] Authorization
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

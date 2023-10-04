@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form_container">
-    <h2 class="">Create a new comment</h2>
+    <h2 class="section_title">Create a new comment</h2>
     <%= form_with(model: [@user, @post, @comment], local:true) do |f| %>
       <div class="form_group">
         <%= f.label :text %>
