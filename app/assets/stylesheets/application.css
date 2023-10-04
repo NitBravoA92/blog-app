@@ -147,6 +147,10 @@ main {
 }
 
 .flash_alert-alert {
+  background-color: #c56d08;
+}
+
+.flash_alert-notice {
   background-color: #0c39a0;
 }
 
