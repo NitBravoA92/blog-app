@@ -10,6 +10,9 @@ module ApplicationHelper
     content << generate_nav_link({ name: 'posts', action: 'new' }, 'User posts', 3)
     content << generate_nav_link({ name: 'posts', action: 'show' }, 'User posts', 3)
     content << generate_nav_link({ name: 'comments', action: 'new' }, 'Back to post', 4)
+
+    content << generate_session_nav_link
+
     content.html_safe
   end
 
@@ -17,6 +20,14 @@ module ApplicationHelper
     return '' unless controller_name == req_data[:name] && action_name == req_data[:action]
 
     "<li>#{link_to title, get_url(level)}</li>"
+  end
+
+  def generate_session_nav_link
+    sign_out = "<li class='session_nav_link'>#{link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }}</li>"
+    sign_in = "<li class='session_nav_link'>#{link_to 'Sign In', new_user_session_path}</li>"
+    sign_up = "<li class='session_nav_link'>#{link_to 'Sign Up', new_user_registration_path}</li>"
+    
+    links = user_signed_in? ? sign_out : sign_in + sign_up
   end
 
   def get_url(level)
