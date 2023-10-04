@@ -292,6 +292,25 @@ main {
   font-weight: 400;
 }
 
+.form_footer_links {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.form_footer_links.black_color {
+  color: #000;
+}
+
+.form_footer_links.red_color {
+  color: #881515;
+}
+
+.form_footer_links:hover {
+  text-decoration: underline;
+}
+
 /* ============ MEDIA QUERIES ============ */
 @media (min-width: 768px) {
   .main_section {
