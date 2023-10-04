@@ -14,8 +14,12 @@ module PostsHelper
   end
 
   def show_create_post_button
+    content = ''
+
     return '' unless user_signed_in?
 
-    "#{link_to 'Create a post', new_user_post_path(user), class: 'btn'}"
+    content << "#{link_to 'Create a post', new_user_post_path(@user), class: 'btn'}"
+
+    content.html_safe
   end
 end
