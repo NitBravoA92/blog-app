@@ -21,11 +21,10 @@ class CommentsController < ApplicationController
     authorize! :destroy, comment
     if comment.destroy
       flash[:success] = 'The Post was deleted successfully!'
-      redirect_to user_post_path(@post.author, @post)
     else
       flash[:error] = 'Error! The Post was not deleted'
-      redirect_to user_post_path(@post.author, @post)
     end
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private
