@@ -28,7 +28,8 @@ module PostsHelper
 
     return '' unless can?(:delete, @post)
 
-    content << button_to("Delete this post", user_post_path(current_user, @post), method: :delete, class: 'btn', remote: true).to_s
+    content << button_to('Delete this post', user_post_path(current_user, @post), method: :delete, class: 'btn',
+                                                                                  remote: true).to_s
 
     content.html_safe
   end
