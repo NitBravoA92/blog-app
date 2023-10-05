@@ -17,4 +17,10 @@ class User < ApplicationRecord
   def most_recent_posts
     posts.order(created_at: :desc).limit(3)
   end
+
+  after_initialize :set_default_user_role, if: :new_record?
+
+  def set_default_user_role
+    self.role ||= 'admin'
+  end
 end

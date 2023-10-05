@@ -1,5 +1,6 @@
 <div class="container">
   <%= render partial: 'partials/likes_button', object: @post, as: :post %>
+  <%= render partial: 'partials/add_delete_post_button' %>
 </div>
 
 <div class="container">
@@ -10,7 +11,7 @@
       <span class="item_counter"><b>Likes:</b> <%= @post.likes_counter %></span>
     </span>
   </h2>
-  <p class="content_text"><%= @post.text %></p>
+  <p class="content_text"><%= @post.text %></p> 
 </div>
 
 <div class="container">

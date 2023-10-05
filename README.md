@@ -74,6 +74,7 @@
   <li>Data persistent in PostgreSQL</li>
   <li>Test the application with rspec and capybara gems</li>
   <li>Authentication system build with devise gem</li>
+  <li>Authorization rules using CanCanCan gem</li>
   <li>Follow Microverse's list of best practices</li>
 </ul>
 
@@ -223,7 +224,7 @@ Upcoming improvements:
 - [x] Add the functionality to save likes
 - [x] Add the integration tests using capybara gem
 - [x] Authentication using devise gem
-- [ ] Authorization
+- [x] Authorization using CanCanCan gem
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

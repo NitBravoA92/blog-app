@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create addlike deletelike]
+  before_action :authenticate_user!, only: %i[new create addlike deletelike destroy]
   before_action :find_user_by_id, only: %i[index show]
-  before_action :find_post_by_id, only: %i[addlike deletelike]
+  before_action :find_post_by_id, only: %i[addlike deletelike destroy]
 
   def index
     @posts = @user.posts.includes(:comments)
@@ -40,6 +40,17 @@ class PostsController < ApplicationController
   def deletelike
     @post.likes.destroy_by(author: current_user) if liked?(@post, current_user)
     redirect_to user_post_path(@post.author, @post)
+  end
+
+  def destroy
+    authorize! :delete, @post
+    if @post.destroy
+      flash[:success] = 'The Post was deleted successfully!'
+      redirect_to user_posts_path(current_user)
+    else
+      flash[:error] = 'Error! The Post was not deleted'
+      redirect_to user_post_path(current_user, @post)
+    end
   end
 
   private

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :find_post_by_id, only: %i[new create]
+  before_action :find_post_by_id, only: %i[new create destroy]
 
   def new
     @user = @post.author
@@ -13,6 +13,17 @@ class CommentsController < ApplicationController
     result = @new_comment.save
     render new unless result
     flash[:success] = 'The comment of the post was created successfully!'
+    redirect_to user_post_path(@post.author, @post)
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    authorize! :destroy, comment
+    if comment.destroy
+      flash[:success] = 'The Post was deleted successfully!'
+    else
+      flash[:error] = 'Error! The Post was not deleted'
+    end
     redirect_to user_post_path(@post.author, @post)
   end
 

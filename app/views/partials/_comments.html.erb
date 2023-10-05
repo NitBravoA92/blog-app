@@ -2,7 +2,13 @@
   <h5 class="section_subtitle">Comments: </h5>
   <ul class="post_comments">
     <% comments.each do |comment| %>
-      <li class="post_item_comment"><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+      <li class="post_item_comment"><b>
+        <%= comment.author.name %>:</b> 
+        <%= comment.text %>
+        
+          <%= render partial: 'partials/add_delete_comment_button', locals: { comment: comment } %>         
+
+      </li>
     <% end %>
   </ul>
 </div>
