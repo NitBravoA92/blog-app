@@ -4,5 +4,7 @@ class Api::V1::PostsController < ActionController::API
     @user = User.find(params[:user_id])
     @posts = @user.posts
     render json: @posts
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'User not found' }, status: 404
   end
 end
