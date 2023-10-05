@@ -22,4 +22,14 @@ module PostsHelper
 
     content.html_safe
   end
+
+  def show_delete_post_button
+    content = ''
+
+    return '' unless can?(:delete, @post)
+
+    content << button_to("Delete this post", user_post_path(current_user, @post), method: :delete, class: 'btn', remote: true).to_s
+
+    content.html_safe
+  end
 end
