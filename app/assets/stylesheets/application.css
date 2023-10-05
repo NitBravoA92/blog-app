@@ -242,7 +242,8 @@ main {
 }
 
 .btn_add_post_container,
-.likes_button_container {
+.likes_button_container,
+.delete_post_container {
   display: flex;
   justify-content: flex-end;
   width: 100%;
