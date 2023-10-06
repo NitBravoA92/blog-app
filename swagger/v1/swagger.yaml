@@ -1,0 +1,49 @@
+---
+openapi: 3.0.1
+info:
+  title: BlogApp API V1 Docs
+  description: This is a sample Blog application that allows users create and remove
+    posts, comments and likes
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/posts":
+    get:
+      summary: Retrieves a list of posts
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        description: The user's id that written the posts
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of posts found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  author_id_id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                  comments_counter:
+                    type: integer
+                  likes_counter:
+                    type: integer
+                required:
+                - id
+                - title
+                - author_id_id
+servers:
+- url: http://localhost:3000/
+  variables:
+    defaultHost:
+      default: localhost:3000
