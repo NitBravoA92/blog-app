@@ -227,6 +227,7 @@ Upcoming improvements:
 - [x] Authentication using devise gem
 - [x] Authorization using CanCanCan gem
 - [x] Add API endpoints for posts and comments
+- [ ] Create the API documentation using rswag
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
