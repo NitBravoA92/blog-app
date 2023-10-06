@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-documentation'
+  mount Rswag::Api::Engine => '/api-documentation'
   devise_for :users
   # Adding nested resources routes for users and posts
   resources :users , only: [:index, :show] do
