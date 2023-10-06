@@ -75,6 +75,7 @@
   <li>Test the application with rspec and capybara gems</li>
   <li>Authentication system build with devise gem</li>
   <li>Authorization rules using CanCanCan gem</li>
+  <li>RESTful API</li>
   <li>Follow Microverse's list of best practices</li>
 </ul>
 
@@ -225,6 +226,7 @@ Upcoming improvements:
 - [x] Add the integration tests using capybara gem
 - [x] Authentication using devise gem
 - [x] Authorization using CanCanCan gem
+- [x] Add API endpoints for posts and comments
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
