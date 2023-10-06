@@ -15,9 +15,9 @@ RSpec.describe 'Api::Comments', type: :request do
                  id: { type: :integer },
                  users_id: { type: :integer },
                  posts_id: { type: :integer },
-                 text: { type: :string },
+                 text: { type: :string }
                },
-               required: %w[id user_id post_id, text]
+               required: %w[id user_id post_id text]
 
         let(:user_id) do
           User.create(name: 'James', email: 'james@gmail.com', encrypted_password: '78548dhfudygufydg74').id
