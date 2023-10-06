@@ -6,6 +6,45 @@ info:
     posts, comments and likes
   version: v1
 paths:
+  "/api/v1/users/{user_id}/posts/{post_id}/comments":
+    get:
+      summary: Retrieves a list of comments for a post
+      tags:
+      - Comments
+      parameters:
+      - name: user_id
+        in: path
+        description: The user's id that written the posts
+        required: true
+        schema:
+          type: string
+      - name: post_id
+        in: path
+        description: The post's id that has the comments
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of comments found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  users_id:
+                    type: integer
+                  posts_id:
+                    type: integer
+                  text:
+                    type: string
+                required:
+                - id
+                - user_id
+                - post_id,
+                - text
   "/api/v1/users/{user_id}/posts":
     get:
       summary: Retrieves a list of posts
